@@ -5,6 +5,9 @@ var fruitArray = ["apple", "banana", "grapes", "orange", "lemon", "lime", "avoca
 
 var messageArray = ["You win!!!", "Sorry, you lost", "You guessed this letter aleady..."];
 var underscoreArray = [];
+var usedLetters = [];
+var letters = [];
+var remainingGuesses = 15;
 
 // get another random word by pressing "restart" button
     var randomFruit = fruitArray[Math.floor(Math.random() * fruitArray.length)];
@@ -19,10 +22,15 @@ var underscoreArray = [];
     $("#underscores").append("<span>"+underscoreArray[i]+"</span>")
     }
 
-document.addEventListener("keydown", function(event) 
-{
+    document.addEventListener("keydown", function(event) 
+    {
     console.log(event.key);
-    var guessLetter = event.key.toLowerCase();
+
+    var guessLetter = event.key.toLowerCase();  
+    letters.push(guessLetter);
+    document.getElementById("guessedLetters").innerHTML = letters.join("");
+    
+    document.getElementById("underscores").innerHTML = usedLetters.join('');
     for(var i = 0; i < randomFruit.length; i++)
     {
         if(guessLetter == wordSplit[i]) 
@@ -32,9 +40,6 @@ document.addEventListener("keydown", function(event)
         }
     }
 })
-
-
-// create a variable/array that stores the key inputs
 
 
 
