@@ -13,7 +13,7 @@ var remainingGuesses = 10;
     var randomFruit = fruitArray[Math.floor(Math.random() * fruitArray.length)];
     console.log(randomFruit);
 
-// set remaining guesses to 15
+// set remaining guesses to 10
    $("#remaining").append(remainingGuesses);
 
 // split the random word into individual letters and put into wordSplit array
@@ -27,11 +27,12 @@ var remainingGuesses = 10;
     $("#underscores").append("<span>"+underscoreArray[i]+"</span>")
     }
 
-// 
+// consolelogging the key that is being pressed 
     document.addEventListener("keydown", function(event) 
     {
     console.log(event.key);
 
+// putting input letter into lower case, and show letters in Guessed Letters group.
     var guessLetter = event.key.toLowerCase();  
     letters.push(guessLetter);
     document.getElementById("guessedLetters").innerHTML = letters.join("");
@@ -41,6 +42,7 @@ var remainingGuesses = 10;
             alert("Please type a letter!");
         } */
 
+// splitting random words into separate letters
     for(var i = 0; i < randomFruit.length; i++)
     {
         if(guessLetter === wordSplit[i]) 
@@ -49,13 +51,20 @@ var remainingGuesses = 10;
             console.log(guessLetter, wordSplit[i]);
             document.getElementById("underscores").innerHTML = underscoreArray.join("");
         }
+        if(guessLetter[i] !== wordSplit[i])
+        {
+        remainingGuesses = remainingGuesses - 1;
+        }
     }
 
 })
+    if(remainingGuesses = 0)
+    {
+        alert(messageArray[1]);
+    }
 
 
 
-// create a loop for "counting down missed tries", let's give the player 15 opportunities, for loop, i=1, i<15, i++
 // make a var/array that stores the "tried" letters
 // word display
 })
