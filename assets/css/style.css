@@ -6,6 +6,9 @@ body {
 .jumbotron {
     background-color: #e49fdb!important;
     border-bottom: 2px solid black;
+    border-radius: 0!important;
+    font-family: 'Gloria Hallelujah', cursive;
+    text-decoration: underline;
 }
 
 h3{

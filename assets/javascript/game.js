@@ -21,10 +21,6 @@ var remainingGuesses = 15;
     {
     underscoreArray[i] = " _ ";
     $("#underscores").append("<span>"+underscoreArray[i]+"</span>")
-        if(underscoreArray.length === wordSplit[i])
-        {
-            alert(messageArray[0]);
-        }
     }
 
 // consolelogging the key that is being pressed 
@@ -37,7 +33,7 @@ var remainingGuesses = 15;
     $("#remaining").html(remainingGuesses);
 
 // putting input letter into lower case, and show letters in Guessed Letters group.
-    var guessLetter = event.key.toLowerCase(); 
+    var guessLetter = event.key.toLowerCase();
 
     letters.push(guessLetter);
 
@@ -61,10 +57,23 @@ var remainingGuesses = 15;
             document.getElementById("underscores").innerHTML = underscoreArray.join("");
         } 
     }
+
     if(remainingGuesses === 0)
     {
         alert(messageArray[1]);
     }
+
+    var transformedWord = document.getElementById("underscores").innerHTML;
+
+        if(transformedWord.indexOf("_") === -1)
+        {
+            completeWord = true;
+        }
+        if(completeWord === true)
+        {
+            alert(messageArray[0]);
+        }
+
 
     })
 
@@ -74,13 +83,16 @@ var remainingGuesses = 15;
         var letters = [];
         var remainingGuesses = 15;
         var randomFruit = fruitArray[Math.floor(Math.random() * fruitArray.length)];
-        var wordSplit = randomFruit.split(''); 
+        var wordSplit = randomFruit.split('');
         for(var i = 0; i < randomFruit.length; i++) 
         {
-            underscoreArray[i] = " _ ";
-            $("#underscores").append("<span>"+underscoreArray[i]+"</span>");
+        underscoreArray[i] = " _ ";
+        $("#underscores").append("<span>"+underscoreArray[i]+"</span>")
         }
-    }
+        $("#underscores").empty();
+        $("#guessedLetters").empty();
+        $("#remaining").empty();
+    } 
     
     $("#restart-button").on("click", function()
     {
