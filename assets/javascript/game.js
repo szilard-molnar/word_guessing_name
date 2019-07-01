@@ -3,27 +3,28 @@ $(document).ready(function() {
 // create an array of words, theme is fruits
 var fruitArray = ["apple", "banana", "grapes", "orange", "lemon", "lime", "avocado", "almond", "pear", "strawberry", "raspberry", "cherry", "dragonfruit", "coconut", "mango", "grapefruit", "jackfruit", "chestnut"];
 
-var messageArray = ["You win!!!", "Sorry, you lost", "You guessed this letter aleady...", "Please press a letter"];
+var messageArray = ["Congrats!!! You win!!!", "Sorry, you lost", "You guessed this letter aleady...", "Please press a letter"];
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0", ".", ",", "/", "?", ";", "[", "]", "=", "`"];
 var underscoreArray = [];
 var letters = [];
 var remainingGuesses = 15;
 
-// get another random word by pressing "restart" button
+// random fruit from fruitArray
     var randomFruit = fruitArray[Math.floor(Math.random() * fruitArray.length)];
     console.log(randomFruit);
 
-// set remaining guesses to 15
-
 // split the random word into individual letters and put into wordSplit array
     var wordSplit = randomFruit.split('');
-    console.log(wordSplit); 
 
 // the random word letters are being replaced by "_" 
     for(var i = 0; i < randomFruit.length; i++) 
     {
     underscoreArray[i] = " _ ";
     $("#underscores").append("<span>"+underscoreArray[i]+"</span>")
+        if(underscoreArray.length === wordSplit[i])
+        {
+            alert(messageArray[0]);
+        }
     }
 
 // consolelogging the key that is being pressed 
@@ -34,8 +35,6 @@ var remainingGuesses = 15;
     remainingGuesses--;
     console.log(remainingGuesses);
     $("#remaining").html(remainingGuesses);
-
-    console.log(typeof event.key);
 
 // putting input letter into lower case, and show letters in Guessed Letters group.
     var guessLetter = event.key.toLowerCase(); 
@@ -66,16 +65,12 @@ var remainingGuesses = 15;
     {
         alert(messageArray[1]);
     }
-    if(document.getElementById("underscores") === 0)
-    {
-        alert(messageArray[0]);
-    }
-    
+
+    })
 
     function startOver()
     {
         var underscoreArray = [];
-        var usedLetters = [];
         var letters = [];
         var remainingGuesses = 15;
         var randomFruit = fruitArray[Math.floor(Math.random() * fruitArray.length)];
@@ -89,8 +84,7 @@ var remainingGuesses = 15;
     
     $("#restart-button").on("click", function()
     {
-       
+        startOver();
     });
 
-    })
 })

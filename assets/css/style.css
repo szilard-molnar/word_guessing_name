@@ -1,0 +1,18 @@
+body {
+    background-color: #9fe4e4!important;
+    text-align: center!important;
+}
+
+.jumbotron {
+    background-color: #e49fdb!important;
+    border-bottom: 2px solid black;
+}
+
+h3{
+    font-family: 'Indie Flower', cursive;
+}
+
+#underscores, #guessedLetters, #remaining {
+    font-family: 'Indie Flower', cursive;
+    font-size: 24px;
+}

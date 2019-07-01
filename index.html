@@ -8,13 +8,19 @@
         <title>
             Word Guessing Game
         </title>
-        <link type="text/css" href="./assets/css/reset.css">
-        <link type="text/css" href="./assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="./assets/javascript/game.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+
     </head>
     <body>
-        <h1>Word Guessing Game</h1>
+        <div class="jumbotron">
+            <h1 class="display-4">Word Guessing Game!</h1>
+        </div>
+
         <h3>Current Word:</h3>
         <div id="underscores">
             
@@ -22,6 +28,8 @@
         <br>
 
         <button id="restart-button">Restart</button>
+
+            <br><br>
             
             <div>
                     <h3>Guessed Letters: </h3>
