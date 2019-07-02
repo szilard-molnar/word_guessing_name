@@ -20,14 +20,14 @@
         <div class="jumbotron">
             <h1 class="display-4">Word Guessing Game!</h1>
         </div>
-
-        <h3>Current Word:</h3>
-        <div id="underscores">
-            
-        </div>
+        
+            <h3>Current Word:</h3>
+                <div id="underscores">
+                </div>
         <br>
 
-        <button id="restart-button">Restart</button>
+        <button value="Refresh Page" id="restart-button" onClick="window.location.reload();">Restart</button>
+
 
             <br><br>
             
@@ -38,8 +38,11 @@
             <div id="guessedLetters"></div>
         
             <br>
+
         <h3>Remaining Guesses: </h3>
+
             <div id="remaining"></div>
 
+        </div>
     </body>
 </html>
