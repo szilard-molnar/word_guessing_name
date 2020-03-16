@@ -11,11 +11,11 @@ body {
     text-decoration: underline;
 }
 
-h3{
+h3, h4, #wins, #losses{
     font-family: 'Indie Flower', cursive;
 }
 
-#underscores, #guessedLetters, #remaining {
+#underscores, #guessedLetters, #remaining, #wins, #losses {
     font-family: 'Indie Flower', cursive;
     font-size: 24px;
 }

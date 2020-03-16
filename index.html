@@ -18,7 +18,7 @@
     </head>
     <body>
         <div class="jumbotron">
-            <h1 class="display-4">Word Guessing Game!</h1>
+            <h1 class="display-4">Hangman Game!</h1>
         </div>
         
             <h3>Current Word:</h3>
@@ -26,8 +26,7 @@
                 </div>
         <br>
 
-        <button value="Refresh Page" id="restart-button" onClick="window.location.reload();">Restart</button>
-
+        <button value="Refresh Page" id="restart-button">Restart</button>
 
             <br><br>
             
@@ -38,11 +37,25 @@
             <div id="guessedLetters"></div>
         
             <br>
-
+        
+        <div>
         <h3>Remaining Guesses: </h3>
 
-            <div id="remaining"></div>
+            <span id="remaining"></span>
 
         </div>
+
+        <br>
+
+        <div>
+        <h4>Wins:</h4>
+            <span id="wins"></span>
+        </div>
+
+        <div>
+        <h4>Losses:</h4>
+            <span id="losses"></span>
+        </div>
+    
     </body>
 </html>
