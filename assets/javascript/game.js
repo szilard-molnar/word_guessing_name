@@ -29,59 +29,75 @@ function startGame() {
     $("#remaining").html(remainingGuesses);
 
 strReplace();
+
 }
-// generate a loop the replaces the letters with underscores
+// function to replace letters with "_"
 function strReplace(){
-    let underscoreString = "";
     for(let i = 0; i < wordSplit.length; i++)
     {
-        underscoreString += wordSplit[i].replace(/[a-zA-Z]/gi, "_");
-        console.log(underscoreString);
+        underscoreArray.push(wordSplit[i].replace(/[a-zA-Z]/gi, "_"));
+        console.log(underscoreArray);
     }
-    document.getElementById("underscores").innerHTML = underscoreString;
+    document.getElementById("underscores").innerHTML = underscoreArray;
 }
 
-// check if input is a letter or not
-function checkInput() {
-    console.log(event.key);
+// check if the input is in the word or not. if yes, reveal letter. if not, reduce remaining guesses by 1.
 
-if(remainingGuesses > 0)
-{
-    for(let i = 0; i < letters.length; i++)
+function checkInput() {
+    //console.log("this is the" + underscoreArray);
+    if(remainingGuesses > 0)
     {
-        if(event.key === letters[i])
+        for(let i = 0; i < wordSplit.length; i++)
         {
-            alert("You already guessed this letter!!!!");
+            if(event.key === wordSplit[i])
+            {
+                underscoreArray[i] = event.key;
+                underscoreArray[i] = underscoreArray[i].toLowerCase();         
+            }
+            document.getElementById("underscores").innerHTML = underscoreArray.join("");
+        
         }
     }
-
-    if (event.keyCode < 65 || event.keyCode > 90)
-    {
-        alert("Please guess a letter!!!");
-    }
-
-    else if(!wordSplit.includes(event.key))
-    {
-        remainingGuesses--;
-        $("#remaining").html(remainingGuesses);
-    }
-
-    else if(event.keyCode >= 65 && event.keyCode <= 90 && !letters.includes(event.key) )
-    {
-        letters.push(event.key);
-        console.log("thank you for guessing a letter!!!");
-        $("#guessedLetters").html(letters);
-    }
-
-    if(remainingGuesses === 0)
-    {
-        alert("GAMEOVER");
-        losses++;
-        $("#losses").html(losses);
-        return;
-    }
 }
-}
+// function checkInput() {
+
+// if(remainingGuesses > 0)
+// {
+//     for(let i = 0; i < letters.length; i++)
+//     {
+//         if(event.key === letters[i])
+//         {
+//             alert("You already guessed this letter!!!!");
+//         }
+//     }
+
+//     if (event.keyCode < 65 || event.keyCode > 90)
+//     {
+//         alert("Please guess a letter!!!");
+//     }
+
+//     else if(!wordSplit.includes(event.key))
+//     {
+//         remainingGuesses--;
+//         $("#remaining").html(remainingGuesses);
+//     }
+
+//     else if(event.keyCode >= 65 && event.keyCode <= 90 && !letters.includes(event.key) )
+//     {
+//         letters.push(event.key);
+//         console.log("thank you for guessing a letter!!!");
+//         $("#guessedLetters").html(letters);
+//     }
+
+//     if(remainingGuesses === 0)
+//     {
+//         alert("GAMEOVER");
+//         losses++;
+//         $("#losses").html(losses);
+//         return;
+//     }
+// }
+// }
 
 
 document.addEventListener("keydown", checkInput);
