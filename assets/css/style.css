@@ -34,18 +34,25 @@ h3, h4, #wins, #losses{
 
 #hangMan {
     border: 2px solid black;
+    display: inline-block;
 }
 
-#standingTree {
-    border-right: 5px solid black;
-    height: 80%;
-    width: 20%;
+#standingTreeTop {
+    width: 25%;
     margin-top: 10%;
-    border-top: 5px solid black;
-    border-top-width: 10%;
+    border-bottom: 5px solid black;
     margin-left: 35%;
 }
 
+#standingTree {
+    border-left: 5px solid black;
+    height: 70%;
+    margin-left: 59.2%;
+}
+
 #rope {
-    border: 5px solid black;
+    border-left: 5px solid black;
+    height: 10%;
+    margin-left: 35%;
+    margin-top: -56%;   
 }
