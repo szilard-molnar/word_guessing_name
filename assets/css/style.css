@@ -26,3 +26,26 @@ h3, h4, #wins, #losses{
     width: 20%;
     margin-left: 40%;
 }
+
+#gameInfo {
+    border: 2px solid black;
+    padding: 15px;
+}
+
+#hangMan {
+    border: 2px solid black;
+}
+
+#standingTree {
+    border-right: 5px solid black;
+    height: 80%;
+    width: 20%;
+    margin-top: 10%;
+    border-top: 5px solid black;
+    border-top-width: 10%;
+    margin-left: 35%;
+}
+
+#rope {
+    border: 5px solid black;
+}
