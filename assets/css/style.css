@@ -56,3 +56,66 @@ h3, h4, #wins, #losses{
     margin-left: 35%;
     margin-top: -56%;   
 }
+
+#head {
+    height: 16%;
+    width: 16%;
+    background-color: transparent;
+    border: 5px solid black;
+    border-radius: 50%;
+    margin-left: 27.5%;
+}
+
+#body {
+    border-left: 5px solid black;
+    height: 20%;
+    margin-left: 35%;
+}
+
+#left-arm {
+    width: 9%;
+    height: 5%;
+    margin-left: 26.5%;
+    margin-top: -13%;
+    border-bottom: 5px solid black;
+    -webkit-transform:
+        translateY(-20px)
+        translateX(5px)
+        rotate(27deg); 
+}
+
+#right-arm {
+    width: 10%;
+    height: 5%;
+    margin-left: 33.5%;
+    margin-top: -12%;
+    border-bottom: 5px solid black;
+    -webkit-transform:
+        translateY(20px)
+        translateX(5px)
+        rotate(-26deg);
+}
+
+#left-leg {
+    width: 13%;
+    height: 5%;
+    margin-left: 24%;
+    margin-top: 16%;
+    border-bottom: 5px solid black;
+    -webkit-transform:
+        translateY(20px)
+        translateX(5px)
+        rotate(-66deg);
+}
+
+#right-leg {
+    width: 13%;
+    height: 5%;
+    margin-left: 32%;
+    margin-top: -4%;
+    border-bottom: 5px solid black;
+    -webkit-transform:
+        translateY(20px)
+        translateX(5px)
+        rotate(68deg);
+}
