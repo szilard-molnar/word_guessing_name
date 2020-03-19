@@ -14,7 +14,7 @@ let wordSplit;
 
 function startGame() {
     underscoreArray = [];
-    letters = [];
+    $( "#guessedLetters" ).empty();
     remainingGuesses = 10;
     completeWord = false;
 
@@ -101,6 +101,7 @@ function ifYouWin() {
 document.addEventListener("keydown", checkInput);
 
 $("#restart-button").click(function(){
+    letters.length = 0;
     startGame();
 });
 
