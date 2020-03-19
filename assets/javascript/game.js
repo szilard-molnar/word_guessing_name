@@ -4,7 +4,7 @@ $(document).ready(function() {
 var fruitArray = ["apple", "banana", "grapes", "orange", "lemon", "lime", "avocado", "almond", "pear", "strawberry", "raspberry", "cherry", "dragonfruit", "coconut", "mango", "grapefruit", "jackfruit", "chestnut"];
 
 let underscoreArray;
-let letters;
+let letters = [];
 let remainingGuesses;
 let wins = 0;
 let losses = 0;
@@ -15,7 +15,7 @@ let wordSplit;
 function startGame() {
     underscoreArray = [];
     letters = [];
-    remainingGuesses = 3;
+    remainingGuesses = 10;
     completeWord = false;
 
 // random fruit from fruitArray
@@ -46,59 +46,57 @@ function strReplace(){
 function checkInput() {
     //console.log("this is the" + underscoreArray);
     if(remainingGuesses > 0)
-    {
+    {  
+        if(event.which < 65 || event.which > 90)
+        {
+            alert("Please guess a letter!!!");
+            return;
+        } 
+        else if(event.which >= 65 && event.which <= 90)
+        {
+        letters.push(event.key);
+        $("#guessedLetters").append(event.key + ", ");
+        }
+
         for(let i = 0; i < wordSplit.length; i++)
         {
             if(event.key === wordSplit[i])
             {
                 underscoreArray[i] = event.key;
-                underscoreArray[i] = underscoreArray[i].toLowerCase();         
+                underscoreArray[i] = underscoreArray[i].toLowerCase();     
+                document.getElementById("underscores").innerHTML = underscoreArray.join("");
+                ifYouWin();    
             }
-            document.getElementById("underscores").innerHTML = underscoreArray.join("");
         
         }
+        if(!wordSplit.includes(event.key))
+        {
+            remainingGuesses--;
+            ifYouLose();
+        }
+        $("#remaining").html(remainingGuesses);
     }
 }
-// function checkInput() {
 
-// if(remainingGuesses > 0)
-// {
-//     for(let i = 0; i < letters.length; i++)
-//     {
-//         if(event.key === letters[i])
-//         {
-//             alert("You already guessed this letter!!!!");
-//         }
-//     }
+function ifYouLose() {
+    if(remainingGuesses === 0)
+    {
+        losses++;      
+        alert("You lost!!!");
+        $("#losses").html(losses);
+        return;
+    }
+}
 
-//     if (event.keyCode < 65 || event.keyCode > 90)
-//     {
-//         alert("Please guess a letter!!!");
-//     }
-
-//     else if(!wordSplit.includes(event.key))
-//     {
-//         remainingGuesses--;
-//         $("#remaining").html(remainingGuesses);
-//     }
-
-//     else if(event.keyCode >= 65 && event.keyCode <= 90 && !letters.includes(event.key) )
-//     {
-//         letters.push(event.key);
-//         console.log("thank you for guessing a letter!!!");
-//         $("#guessedLetters").html(letters);
-//     }
-
-//     if(remainingGuesses === 0)
-//     {
-//         alert("GAMEOVER");
-//         losses++;
-//         $("#losses").html(losses);
-//         return;
-//     }
-// }
-// }
-
+function ifYouWin() {
+    if(underscoreArray.indexOf("_") === -1) 
+    {
+    wins++;
+    alert("You win!");
+    $("#wins").html(wins);
+    return;
+    }
+}
 
 document.addEventListener("keydown", checkInput);
 
