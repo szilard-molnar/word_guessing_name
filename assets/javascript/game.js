@@ -99,7 +99,7 @@ function ifYouLose() {
     {
         losses++;      
         alert("You lost!!!");
-        $("#losses").html(losses);
+        $("#losediv").html("losses: " + losses);
         return;
     }
 }
@@ -108,10 +108,10 @@ function ifYouLose() {
 function ifYouWin() {
     if(underscoreArray.indexOf("_") === -1) 
     {
-    wins++;
-    alert("You win!");
-    $("#wins").html(wins);
-    return;
+        wins++;
+        alert("You win!");
+        $("#windiv").html("wins: " + wins);
+        return;
     }
 }
 
