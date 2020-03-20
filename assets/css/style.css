@@ -11,7 +11,7 @@ body {
     text-decoration: underline;
 }
 
-h3, h4, #wins, #losses{
+h2, h3, h4, #wins, #losses{
     font-family: 'Indie Flower', cursive;
 }
 
@@ -126,4 +126,9 @@ h3, h4, #wins, #losses{
         translateX(5px)
         rotate(68deg);
     visibility: hidden;
+}
+
+#categoryText {
+    margin-bottom: 2%;
+    text-decoration: underline;
 }
